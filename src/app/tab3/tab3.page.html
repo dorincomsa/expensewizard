@@ -1,17 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Add new expense
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" [scrollY]="false">
+  <div class="container">
+    <div class="top">
+      <div class="form">
+        <ion-item>
+          <ion-input [(ngModel)]="name" label="Name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select  interface="action-sheet" label="Category" label-placement="fixed" placeholder="Select a category" [(ngModel)]="category">
+            <ion-select-option *ngFor="let category of categories" [value]="category">{{category}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="value" label="Value" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime id="datetime" presentation="date" [(ngModel)]="date" ></ion-datetime>
+            </ng-template>
+          </ion-modal>
+
+        </ion-item>
+      </div>
+    </div>
+    <div class="bottom">
+      <ion-button [disabled]="!name || !category || !date" class="button" (click)="addExpense()">Add expense</ion-button>
+    </div>
+  </div>
 </ion-content>

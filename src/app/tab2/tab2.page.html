@@ -1,17 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Ask questions
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" [scrollY]="false">
+  <div class="container">
+    <div class="history">
+      <div class="conversation" *ngFor="let conversation of conversations">
+        <div class="question box">{{conversation.question}}</div>
+        <div class="answer box">{{stringify(conversation.response)}}</div>
+      </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    </div>
+    <div class="bottom">
+      <ion-item>
+        <ion-input [(ngModel)]="question" placeholder="Your question"></ion-input>
+      </ion-item>
+      <ion-button [disabled]="!question" (click)="onSubmit()">Submit</ion-button>
+    </div>
+  </div>
 </ion-content>

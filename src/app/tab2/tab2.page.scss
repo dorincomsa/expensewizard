@@ -1,0 +1,62 @@
+ion-title{
+  font-size: 24px;
+  width: 100%;
+}
+
+ion-toolbar{
+  padding: 10px 0;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .history {
+    flex: 4 1 0;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    gap: 16px;
+
+    .conversation{
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 8px;
+
+      .box{
+        padding: 20px;
+        background-color: darkgray;
+        border-radius: 12px;
+      }
+      .question{
+        align-self: flex-end;
+        background-color: var(--ion-color-primary);
+      }
+
+      .answer{
+        align-self: flex-start;
+        background-color: var(--ion-color-tertiary);
+      }
+    }
+  }
+  .bottom{
+    border-top: solid 2px darkgray;
+    padding: 20px;
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+
+    .input{
+
+    }
+    .button{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

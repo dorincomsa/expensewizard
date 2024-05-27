@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      View expenses
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="container">
+    <ion-list class="list">
+      <ion-item *ngFor="let expense of expenses$ | async">
+        <div class="item-container">
+          <div class="left">
+            <img [src]="computeCategoryImage(expense.category)" alt="" class="image">
+          </div>
+          <div class="right">
+            <div class="top">
+              <div class="name">{{expense.name}}</div>
+            </div>
+            <div class="bottom">{{expense.year}} - {{expense.month}} - {{expense.day}}</div>
+          </div>
+          <div class="price">{{expense.value}} RON</div>
+          <div class="delete">
+            <ion-button color="danger" (click)="deleteExpense(expense.id)">X</ion-button>
+          </div>
+        </div>
+        </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

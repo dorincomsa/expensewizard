@@ -4,11 +4,11 @@ import { Conversation } from '../domain/conversation';
 import { first } from 'rxjs';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-conversation',
+  templateUrl: 'conversation.page.html',
+  styleUrls: ['conversation.page.scss']
 })
-export class Tab2Page implements OnInit {
+export class ConversationPage implements OnInit {
 
   question = ''
   conversations: Conversation[] = [];

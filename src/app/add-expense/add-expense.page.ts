@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Service } from '../services/Service';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  selector: 'app-add-expense',
+  templateUrl: 'add-expense.page.html',
+  styleUrls: ['add-expense.page.scss']
 })
-export class Tab3Page {
+export class AddExpensePage {
   protected categories = this.service.categories
   protected name: string = '';
   protected category?: string = undefined;

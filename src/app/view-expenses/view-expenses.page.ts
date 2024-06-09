@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Service } from '../services/Service';
+import { MainService } from '../services/main-service';
 import { Expense } from '../domain/expense';
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class ViewExpensesPage implements OnInit {
   protected categories = this.service.categories
   protected expenses$?: Observable<Expense[]>;
 
-  constructor(private service: Service) {}
+  constructor(private service: MainService) {}
 
   ngOnInit(): void {
     this.expenses$ = this.service.getExpenses();

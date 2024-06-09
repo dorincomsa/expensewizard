@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Service } from '../services/Service';
+import { MainService } from '../services/main-service';
 
 @Component({
   selector: 'app-add-expense',
@@ -13,7 +13,7 @@ export class AddExpensePage {
   protected value?: number = undefined;
   protected date: string = new Date().toISOString();
 
-  constructor(private service: Service) {}
+  constructor(private service: MainService) {}
 
   addExpense(): void {
     if(this.name && this.category && this.value && this.date){

@@ -11,13 +11,13 @@
     <div class="history">
       <div class="conversation" *ngFor="let conversation of conversations">
         <div class="question box">{{conversation.question}}</div>
-        <div class="answer box">{{stringify(conversation.response)}}</div>
+        <div class="answer box">{{conversation.response}}</div>
       </div>
 
     </div>
     <div class="bottom">
       <ion-item>
-        <ion-input [(ngModel)]="question" placeholder="Your question"></ion-input>
+        <ion-input [(ngModel)]="question" ngDefaultControl  placeholder="Your question"></ion-input>
       </ion-item>
       <ion-button [disabled]="!question" (click)="onSubmit()">Submit</ion-button>
     </div>

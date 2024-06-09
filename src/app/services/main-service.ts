@@ -7,7 +7,7 @@ import { Expense } from "../domain/expense";
 @Injectable({
   providedIn: 'root'
 })
-export class Service {
+export class MainService {
   public categories = ["supermarket", "restaurant", "subscripiton", "service", "transport", "transfer", "withdraw", "fun", "health", "others"];
   private expensesSubject = new BehaviorSubject<Expense[]>([]);
   private conversationsSubject = new BehaviorSubject<Conversation[]>([]);

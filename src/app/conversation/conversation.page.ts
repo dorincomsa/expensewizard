@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Service } from '../services/Service';
+import { MainService } from '../services/main-service';
 import { Conversation } from '../domain/conversation';
-import { first } from 'rxjs';
 
 @Component({
   selector: 'app-conversation',
@@ -13,11 +12,11 @@ export class ConversationPage implements OnInit {
   question = ''
   conversations: Conversation[] = [];
 
-  constructor(private service: Service){}
+  constructor(private service: MainService){}
 
   ngOnInit(): void {
     this.service.getConvesations().subscribe(conversations => {
-      this.conversations = conversations.reverse().map(this.mapConversation)
+      this.conversations = conversations.reverse()
     })
   }
 
@@ -27,14 +26,4 @@ export class ConversationPage implements OnInit {
     })
     this.question = ''
   }
-
-  stringify(resp: any): string{
-    return resp
-  }
-
-  mapConversation(conversation: Conversation): Conversation{
-    console.log(conversation)
-    return conversation;
-  }
-
 }
